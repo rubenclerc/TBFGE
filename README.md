@@ -1,5 +1,5 @@
 # TBFGE
-A software which builds Genshin Impact team for you.
+A software which builds Genshin Impact teams for you.
 
 ## Prerequisites
 
