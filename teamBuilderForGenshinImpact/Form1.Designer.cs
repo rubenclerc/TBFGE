@@ -29,13 +29,35 @@ namespace teamBuilderForGenshinImpact
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.connect = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // connect
+            // 
+            this.connect.Location = new System.Drawing.Point(323, 43);
+            this.connect.Name = "connect";
+            this.connect.Size = new System.Drawing.Size(144, 40);
+            this.connect.TabIndex = 0;
+            this.connect.Text = "Connect to DB";
+            this.connect.UseVisualStyleBackColor = true;
+            this.connect.Click += new System.EventHandler(this.connectButton_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Controls.Add(this.connect);
+            this.Name = "Form1";
+            this.Text = "StartWindow";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button connectButton;
+        private System.Windows.Forms.Button connect;
     }
 }
 
