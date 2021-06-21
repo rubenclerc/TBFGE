@@ -16,7 +16,6 @@ namespace teamBuilderForGenshinImpact
 
         //Initialisation
         private MySqlConnection cn;
-        private bool isConnected = false;
 
         public startWindow()
         {
@@ -35,13 +34,12 @@ namespace teamBuilderForGenshinImpact
             try
             {
                 if (cn.State == ConnectionState.Closed) { cn.Open(); }
-                this.isConnected = true;
 
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 
             //To instantiate and show the main window
-            MainWindow mw = new MainWindow(this.isConnected);
+            MainWindow mw = new MainWindow(this.cn);
             mw.Show();
             this.Hide();
         }
