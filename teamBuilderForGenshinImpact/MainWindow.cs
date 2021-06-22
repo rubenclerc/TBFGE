@@ -18,6 +18,7 @@ namespace teamBuilderForGenshinImpact
         {
             InitializeComponent();
             this.cn = cn;
+            this.isCon.Text = this.cn.ConnectionString;
 
             //To initialize the list view
             this.initializeListView();
@@ -27,18 +28,19 @@ namespace teamBuilderForGenshinImpact
         //A method which initialize the list view with the data in the database
         public void initializeListView()
         {
-            this.charactersList.Clear();
 
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM t_characters", this.cn);                        
-            using MySqlDataReader Read = cmd.ExecuteReader();
-            while (Read.Read())
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM t_characters", this.cn);
+            using (MySqlDataReader Lire = cmd.ExecuteReader())
             {
-                String c_name = Read["c_name"].ToString();
-                String c_vision = Read["c_vision"].ToString();
-                String c_rarity = Read["c_rarity"].ToString();
-                String c_weapon = Read["c_weapon"].ToString();
+                while (Lire.Read())
+                {
+                    String name = Lire["c_name"].ToString();
+                    String vision = Lire["c_vision"].ToString();
+                    String rarity = Lire["c_rarity"].ToString();
+                    String weapon = Lire["c_weapon"].ToString();
 
-                this.charactersList.Items.Add(new ListViewItem(new[] { c_name, c_vision, c_rarity, c_weapon }));
+                    this.list.Items.Add(new ListViewItem(new[] { name, vision, rarity, weapon }));
+                }
             }
 
         }
