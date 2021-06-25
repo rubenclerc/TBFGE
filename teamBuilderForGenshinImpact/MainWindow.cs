@@ -18,7 +18,6 @@ namespace teamBuilderForGenshinImpact
         {
             InitializeComponent();
             this.cn = cn;
-            this.isCon.Text = this.cn.ConnectionString;
 
             //To initialize the list view
             this.initializeListView();
@@ -43,12 +42,6 @@ namespace teamBuilderForGenshinImpact
                 }
             }
 
-        }
-
-        //A method to refresh the list view
-        private void refreshButton_Click(object sender, EventArgs e)
-        {
-            this.initializeListView();
         }
 
         //A method to close the application

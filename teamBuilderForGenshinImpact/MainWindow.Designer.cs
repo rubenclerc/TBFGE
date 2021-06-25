@@ -29,7 +29,6 @@ namespace teamBuilderForGenshinImpact
         /// </summary>
         private void InitializeComponent()
         {
-            this.refreshButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
             this.charactersGroupbox = new System.Windows.Forms.GroupBox();
             this.list = new System.Windows.Forms.ListView();
@@ -37,23 +36,20 @@ namespace teamBuilderForGenshinImpact
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            this.isCon = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
+            this.yourCharactersGroupbox = new System.Windows.Forms.GroupBox();
+            this.mainTitleLabel = new System.Windows.Forms.Label();
             this.charactersGroupbox.SuspendLayout();
+            this.yourCharactersGroupbox.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // refreshButton
-            // 
-            this.refreshButton.Location = new System.Drawing.Point(819, 51);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(75, 23);
-            this.refreshButton.TabIndex = 2;
-            this.refreshButton.Text = "Refresh";
-            this.refreshButton.UseVisualStyleBackColor = true;
-            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(13, 12);
+            this.closeButton.Location = new System.Drawing.Point(12, 12);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(75, 23);
             this.closeButton.TabIndex = 3;
@@ -64,9 +60,9 @@ namespace teamBuilderForGenshinImpact
             // charactersGroupbox
             // 
             this.charactersGroupbox.Controls.Add(this.list);
-            this.charactersGroupbox.Location = new System.Drawing.Point(13, 80);
+            this.charactersGroupbox.Location = new System.Drawing.Point(324, 80);
             this.charactersGroupbox.Name = "charactersGroupbox";
-            this.charactersGroupbox.Size = new System.Drawing.Size(887, 443);
+            this.charactersGroupbox.Size = new System.Drawing.Size(276, 437);
             this.charactersGroupbox.TabIndex = 4;
             this.charactersGroupbox.TabStop = false;
             this.charactersGroupbox.Text = "Characters  list";
@@ -81,7 +77,7 @@ namespace teamBuilderForGenshinImpact
             this.list.HideSelection = false;
             this.list.Location = new System.Drawing.Point(6, 22);
             this.list.Name = "list";
-            this.list.Size = new System.Drawing.Size(875, 415);
+            this.list.Size = new System.Drawing.Size(264, 409);
             this.list.TabIndex = 0;
             this.list.UseCompatibleStateImageBehavior = false;
             this.list.View = System.Windows.Forms.View.Details;
@@ -102,27 +98,71 @@ namespace teamBuilderForGenshinImpact
             // 
             this.columnHeader4.Text = "Weapon";
             // 
-            // isCon
+            // listView1
             // 
-            this.isCon.AutoSize = true;
-            this.isCon.Location = new System.Drawing.Point(124, 12);
-            this.isCon.Name = "isCon";
-            this.isCon.Size = new System.Drawing.Size(38, 15);
-            this.isCon.TabIndex = 5;
-            this.isCon.Text = "label1";
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8});
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(6, 16);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(263, 415);
+            this.listView1.TabIndex = 6;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Name";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Vision";
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Rarity";
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Weapon";
+            // 
+            // yourCharactersGroupbox
+            // 
+            this.yourCharactersGroupbox.Controls.Add(this.listView1);
+            this.yourCharactersGroupbox.Location = new System.Drawing.Point(625, 80);
+            this.yourCharactersGroupbox.Name = "yourCharactersGroupbox";
+            this.yourCharactersGroupbox.Size = new System.Drawing.Size(275, 437);
+            this.yourCharactersGroupbox.TabIndex = 7;
+            this.yourCharactersGroupbox.TabStop = false;
+            this.yourCharactersGroupbox.Text = "Your characters";
+            // 
+            // mainTitleLabel
+            // 
+            this.mainTitleLabel.AutoSize = true;
+            this.mainTitleLabel.Font = new System.Drawing.Font("Segoe UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.mainTitleLabel.Location = new System.Drawing.Point(-1, 147);
+            this.mainTitleLabel.MaximumSize = new System.Drawing.Size(350, 0);
+            this.mainTitleLabel.Name = "mainTitleLabel";
+            this.mainTitleLabel.Size = new System.Drawing.Size(325, 258);
+            this.mainTitleLabel.TabIndex = 8;
+            this.mainTitleLabel.Text = "Select  your characters";
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 535);
-            this.Controls.Add(this.isCon);
+            this.Controls.Add(this.mainTitleLabel);
+            this.Controls.Add(this.yourCharactersGroupbox);
             this.Controls.Add(this.charactersGroupbox);
             this.Controls.Add(this.closeButton);
-            this.Controls.Add(this.refreshButton);
             this.Name = "MainWindow";
             this.Text = "MainWindow";
             this.charactersGroupbox.ResumeLayout(false);
+            this.yourCharactersGroupbox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,7 +172,6 @@ namespace teamBuilderForGenshinImpact
         private System.Windows.Forms.ColumnHeader name;
         private System.Windows.Forms.ColumnHeader rarity;
         private System.Windows.Forms.ColumnHeader weapon;
-        private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.GroupBox charactersGroupbox;
         private System.Windows.Forms.ListView list;
@@ -140,6 +179,12 @@ namespace teamBuilderForGenshinImpact
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.Label isCon;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.GroupBox yourCharactersGroupbox;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.Label mainTitleLabel;
     }
 }
