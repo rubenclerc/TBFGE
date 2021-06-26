@@ -49,5 +49,22 @@ namespace teamBuilderForGenshinImpact
         {
             Application.Exit();
         }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+
+            //Read selected items and add them in a new listview
+            foreach(ListViewItem item in this.list.SelectedItems)
+            {
+                String name = item.SubItems[0].Text;
+                String vision = item.SubItems[1].Text;
+                String rarity = item.SubItems[2].Text;
+                String weapon = item.SubItems[3].Text;
+
+                this.charactList.Items.Add(new ListViewItem(new[] { name, vision, rarity, weapon }));
+            }
+                      
+
+        }
     }
 }
