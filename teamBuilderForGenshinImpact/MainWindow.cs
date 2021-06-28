@@ -66,5 +66,35 @@ namespace teamBuilderForGenshinImpact
                       
 
         }
+
+
+        //To create a new team
+        private void createButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.validateListView();
+
+            }catch(NotEnoughCharactersError ex)
+            {
+                ex.ToString();
+            }
+
+
+        }
+
+        //To validate the characters list view
+        private void validateListView()
+        {
+            
+            if (this.charactList.Items.Count < 4)
+            {
+                throw new NotEnoughCharactersError();
+            }
+        }
+
+        private void validateCharacter()
+        {
+        }
     }
 }

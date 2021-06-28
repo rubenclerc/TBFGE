@@ -267,6 +267,7 @@ namespace teamBuilderForGenshinImpact
             this.createButton.TabIndex = 12;
             this.createButton.Text = "START";
             this.createButton.UseVisualStyleBackColor = false;
+            this.createButton.Click += new System.EventHandler(this.createButton_Click);
             // 
             // MainWindow
             // 

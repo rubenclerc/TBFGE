@@ -56,7 +56,6 @@ namespace teamBuilderForGenshinImpact
 
         #endregion
 
-        private System.Windows.Forms.Button connectButton;
         private System.Windows.Forms.Button connect;
     }
 }
