@@ -53,6 +53,7 @@ namespace teamBuilderForGenshinImpact
             this.electroRadio = new System.Windows.Forms.RadioButton();
             this.hydroRadio = new System.Windows.Forms.RadioButton();
             this.createButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.charactersGroupbox.SuspendLayout();
             this.yourCharactersGroupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
@@ -164,7 +165,7 @@ namespace teamBuilderForGenshinImpact
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(624, 192);
+            this.addButton.Location = new System.Drawing.Point(627, 147);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(160, 33);
             this.addButton.TabIndex = 9;
@@ -269,11 +270,22 @@ namespace teamBuilderForGenshinImpact
             this.createButton.UseVisualStyleBackColor = false;
             this.createButton.Click += new System.EventHandler(this.createButton_Click);
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(627, 186);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(160, 33);
+            this.deleteButton.TabIndex = 13;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1106, 570);
+            this.ClientSize = new System.Drawing.Size(1107, 525);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.createButton);
             this.Controls.Add(this.resonanceGroupbox);
             this.Controls.Add(this.addButton);
@@ -321,5 +333,6 @@ namespace teamBuilderForGenshinImpact
         private System.Windows.Forms.RadioButton electroRadio;
         private System.Windows.Forms.RadioButton hydroRadio;
         private System.Windows.Forms.Button createButton;
+        private System.Windows.Forms.Button deleteButton;
     }
 }

@@ -73,9 +73,9 @@ namespace teamBuilderForGenshinImpact
         {
             try
             {
-                this.validateListView();
+                this.validateListView();                
 
-            }catch(NotEnoughCharactersError ex)
+            }catch(LogicError ex)
             {
                 ex.ToString();
             }
@@ -93,8 +93,13 @@ namespace teamBuilderForGenshinImpact
             }
         }
 
-        private void validateCharacter()
+        private void deleteButton_Click(object sender, EventArgs e)
         {
+            //Read selected items and delete them
+            foreach (ListViewItem item in this.charactList.SelectedItems)
+            {
+                item.Remove();
+            }
         }
     }
 }
