@@ -56,12 +56,24 @@ namespace teamBuilderForGenshinImpact
             //Read selected items and add them in a new listview
             foreach(ListViewItem item in this.list.SelectedItems)
             {
-                String name = item.SubItems[0].Text;
-                String vision = item.SubItems[1].Text;
-                String rarity = item.SubItems[2].Text;
-                String weapon = item.SubItems[3].Text;
+                //Test if the character is already in the list view
+                try
+                {
+                    this.validateCharacter(item.SubItems[0].Text);
 
-                this.charactList.Items.Add(new ListViewItem(new[] { name, vision, rarity, weapon }));
+                    //Read data
+                    String name = item.SubItems[0].Text;
+                    String vision = item.SubItems[1].Text;
+                    String rarity = item.SubItems[2].Text;
+                    String weapon = item.SubItems[3].Text;
+
+                    //Add character into the list view
+                    this.charactList.Items.Add(new ListViewItem(new[] { name, vision, rarity, weapon }));
+                }
+                catch(LogicError ex)
+                {
+                    ex.ToString();
+                }
             }
                       
 
@@ -93,12 +105,27 @@ namespace teamBuilderForGenshinImpact
             }
         }
 
+
+        //To delete a character
         private void deleteButton_Click(object sender, EventArgs e)
         {
             //Read selected items and delete them
             foreach (ListViewItem item in this.charactList.SelectedItems)
             {
                 item.Remove();
+            }
+        }
+
+        //To validate a character
+        private void validateCharacter(string characterName)
+        {
+
+            foreach(ListViewItem item in this.charactList.Items)
+            {
+                if (characterName.Equals(item.SubItems[0].Text))
+                {
+                    throw new ExistingCharacterError();
+                }
             }
         }
     }
