@@ -85,7 +85,13 @@ namespace teamBuilderForGenshinImpact
         {
             try
             {
-                this.validateListView();                
+                //Exceptions management
+                this.validateListView();
+                this.validateResonance();
+
+
+
+                
 
             }catch(LogicError ex)
             {
@@ -126,6 +132,15 @@ namespace teamBuilderForGenshinImpact
                 {
                     throw new ExistingCharacterError();
                 }
+            }
+        }
+
+        //To validate reseonance
+        private void validateResonance()
+        {
+            if((this.resonanceCheckBox.CheckedItems.Count == 0) || (this.resonanceCheckBox.CheckedItems.Count == 3) || (this.resonanceCheckBox.CheckedItems.Count > 4))
+            {
+                throw new ResonanceError();
             }
         }
     }

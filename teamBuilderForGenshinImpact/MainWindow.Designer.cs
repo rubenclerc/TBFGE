@@ -45,13 +45,8 @@ namespace teamBuilderForGenshinImpact
             this.mainTitleLabel = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.pyroRadio = new System.Windows.Forms.RadioButton();
             this.resonanceGroupbox = new System.Windows.Forms.GroupBox();
-            this.cryoRadio = new System.Windows.Forms.RadioButton();
-            this.anemoRadio = new System.Windows.Forms.RadioButton();
-            this.geoRadio = new System.Windows.Forms.RadioButton();
-            this.electroRadio = new System.Windows.Forms.RadioButton();
-            this.hydroRadio = new System.Windows.Forms.RadioButton();
+            this.resonanceCheckBox = new System.Windows.Forms.CheckedListBox();
             this.createButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.charactersGroupbox.SuspendLayout();
@@ -75,7 +70,7 @@ namespace teamBuilderForGenshinImpact
             this.charactersGroupbox.Controls.Add(this.list);
             this.charactersGroupbox.Location = new System.Drawing.Point(324, 80);
             this.charactersGroupbox.Name = "charactersGroupbox";
-            this.charactersGroupbox.Size = new System.Drawing.Size(276, 437);
+            this.charactersGroupbox.Size = new System.Drawing.Size(316, 410);
             this.charactersGroupbox.TabIndex = 4;
             this.charactersGroupbox.TabStop = false;
             this.charactersGroupbox.Text = "Characters  list";
@@ -90,7 +85,7 @@ namespace teamBuilderForGenshinImpact
             this.list.HideSelection = false;
             this.list.Location = new System.Drawing.Point(6, 22);
             this.list.Name = "list";
-            this.list.Size = new System.Drawing.Size(264, 409);
+            this.list.Size = new System.Drawing.Size(304, 380);
             this.list.TabIndex = 0;
             this.list.UseCompatibleStateImageBehavior = false;
             this.list.View = System.Windows.Forms.View.Details;
@@ -121,7 +116,7 @@ namespace teamBuilderForGenshinImpact
             this.charactList.HideSelection = false;
             this.charactList.Location = new System.Drawing.Point(6, 22);
             this.charactList.Name = "charactList";
-            this.charactList.Size = new System.Drawing.Size(263, 409);
+            this.charactList.Size = new System.Drawing.Size(285, 380);
             this.charactList.TabIndex = 6;
             this.charactList.UseCompatibleStateImageBehavior = false;
             this.charactList.View = System.Windows.Forms.View.Details;
@@ -145,9 +140,9 @@ namespace teamBuilderForGenshinImpact
             // yourCharactersGroupbox
             // 
             this.yourCharactersGroupbox.Controls.Add(this.charactList);
-            this.yourCharactersGroupbox.Location = new System.Drawing.Point(819, 80);
+            this.yourCharactersGroupbox.Location = new System.Drawing.Point(859, 80);
             this.yourCharactersGroupbox.Name = "yourCharactersGroupbox";
-            this.yourCharactersGroupbox.Size = new System.Drawing.Size(275, 437);
+            this.yourCharactersGroupbox.Size = new System.Drawing.Size(297, 410);
             this.yourCharactersGroupbox.TabIndex = 7;
             this.yourCharactersGroupbox.TabStop = false;
             this.yourCharactersGroupbox.Text = "Your characters";
@@ -165,7 +160,7 @@ namespace teamBuilderForGenshinImpact
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(627, 147);
+            this.addButton.Location = new System.Drawing.Point(667, 147);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(160, 33);
             this.addButton.TabIndex = 9;
@@ -178,93 +173,37 @@ namespace teamBuilderForGenshinImpact
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
-            // pyroRadio
-            // 
-            this.pyroRadio.AutoSize = true;
-            this.pyroRadio.Location = new System.Drawing.Point(6, 22);
-            this.pyroRadio.Name = "pyroRadio";
-            this.pyroRadio.Size = new System.Drawing.Size(49, 19);
-            this.pyroRadio.TabIndex = 10;
-            this.pyroRadio.TabStop = true;
-            this.pyroRadio.Text = "Pyro";
-            this.pyroRadio.UseVisualStyleBackColor = true;
-            // 
             // resonanceGroupbox
             // 
-            this.resonanceGroupbox.Controls.Add(this.cryoRadio);
-            this.resonanceGroupbox.Controls.Add(this.anemoRadio);
-            this.resonanceGroupbox.Controls.Add(this.geoRadio);
-            this.resonanceGroupbox.Controls.Add(this.electroRadio);
-            this.resonanceGroupbox.Controls.Add(this.hydroRadio);
-            this.resonanceGroupbox.Controls.Add(this.pyroRadio);
-            this.resonanceGroupbox.Location = new System.Drawing.Point(606, 231);
+            this.resonanceGroupbox.Controls.Add(this.resonanceCheckBox);
+            this.resonanceGroupbox.Location = new System.Drawing.Point(646, 231);
             this.resonanceGroupbox.Name = "resonanceGroupbox";
-            this.resonanceGroupbox.Size = new System.Drawing.Size(207, 174);
+            this.resonanceGroupbox.Size = new System.Drawing.Size(207, 139);
             this.resonanceGroupbox.TabIndex = 11;
             this.resonanceGroupbox.TabStop = false;
             this.resonanceGroupbox.Text = "Elementary resonance";
             // 
-            // cryoRadio
+            // resonanceCheckBox
             // 
-            this.cryoRadio.AutoSize = true;
-            this.cryoRadio.Location = new System.Drawing.Point(7, 152);
-            this.cryoRadio.Name = "cryoRadio";
-            this.cryoRadio.Size = new System.Drawing.Size(50, 19);
-            this.cryoRadio.TabIndex = 15;
-            this.cryoRadio.TabStop = true;
-            this.cryoRadio.Text = "Cryo";
-            this.cryoRadio.UseVisualStyleBackColor = true;
-            // 
-            // anemoRadio
-            // 
-            this.anemoRadio.AutoSize = true;
-            this.anemoRadio.Location = new System.Drawing.Point(7, 126);
-            this.anemoRadio.Name = "anemoRadio";
-            this.anemoRadio.Size = new System.Drawing.Size(64, 19);
-            this.anemoRadio.TabIndex = 14;
-            this.anemoRadio.TabStop = true;
-            this.anemoRadio.Text = "Anemo";
-            this.anemoRadio.UseVisualStyleBackColor = true;
-            // 
-            // geoRadio
-            // 
-            this.geoRadio.AutoSize = true;
-            this.geoRadio.Location = new System.Drawing.Point(7, 100);
-            this.geoRadio.Name = "geoRadio";
-            this.geoRadio.Size = new System.Drawing.Size(46, 19);
-            this.geoRadio.TabIndex = 13;
-            this.geoRadio.TabStop = true;
-            this.geoRadio.Text = "Geo";
-            this.geoRadio.UseVisualStyleBackColor = true;
-            // 
-            // electroRadio
-            // 
-            this.electroRadio.AutoSize = true;
-            this.electroRadio.Location = new System.Drawing.Point(6, 74);
-            this.electroRadio.Name = "electroRadio";
-            this.electroRadio.Size = new System.Drawing.Size(61, 19);
-            this.electroRadio.TabIndex = 12;
-            this.electroRadio.TabStop = true;
-            this.electroRadio.Text = "Electro";
-            this.electroRadio.UseVisualStyleBackColor = true;
-            // 
-            // hydroRadio
-            // 
-            this.hydroRadio.AutoSize = true;
-            this.hydroRadio.Location = new System.Drawing.Point(7, 48);
-            this.hydroRadio.Name = "hydroRadio";
-            this.hydroRadio.Size = new System.Drawing.Size(58, 19);
-            this.hydroRadio.TabIndex = 11;
-            this.hydroRadio.TabStop = true;
-            this.hydroRadio.Text = "Hydro";
-            this.hydroRadio.UseVisualStyleBackColor = true;
+            this.resonanceCheckBox.FormattingEnabled = true;
+            this.resonanceCheckBox.Items.AddRange(new object[] {
+            "Electro",
+            "Pyro",
+            "Anemo",
+            "Cryo",
+            "Geo",
+            "Hydro"});
+            this.resonanceCheckBox.Location = new System.Drawing.Point(2, 22);
+            this.resonanceCheckBox.Name = "resonanceCheckBox";
+            this.resonanceCheckBox.Size = new System.Drawing.Size(199, 112);
+            this.resonanceCheckBox.TabIndex = 14;
             // 
             // createButton
             // 
             this.createButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.createButton.Location = new System.Drawing.Point(606, 411);
+            this.createButton.Location = new System.Drawing.Point(646, 376);
             this.createButton.Name = "createButton";
-            this.createButton.Size = new System.Drawing.Size(207, 106);
+            this.createButton.Size = new System.Drawing.Size(207, 114);
             this.createButton.TabIndex = 12;
             this.createButton.Text = "START";
             this.createButton.UseVisualStyleBackColor = false;
@@ -272,7 +211,7 @@ namespace teamBuilderForGenshinImpact
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(627, 186);
+            this.deleteButton.Location = new System.Drawing.Point(667, 186);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(160, 33);
             this.deleteButton.TabIndex = 13;
@@ -284,7 +223,7 @@ namespace teamBuilderForGenshinImpact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1107, 525);
+            this.ClientSize = new System.Drawing.Size(1168, 573);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.createButton);
             this.Controls.Add(this.resonanceGroupbox);
@@ -299,7 +238,6 @@ namespace teamBuilderForGenshinImpact
             this.yourCharactersGroupbox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.resonanceGroupbox.ResumeLayout(false);
-            this.resonanceGroupbox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,13 +264,8 @@ namespace teamBuilderForGenshinImpact
         private System.Windows.Forms.Button addButton;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.GroupBox resonanceGroupbox;
-        private System.Windows.Forms.RadioButton pyroRadio;
-        private System.Windows.Forms.RadioButton cryoRadio;
-        private System.Windows.Forms.RadioButton anemoRadio;
-        private System.Windows.Forms.RadioButton geoRadio;
-        private System.Windows.Forms.RadioButton electroRadio;
-        private System.Windows.Forms.RadioButton hydroRadio;
         private System.Windows.Forms.Button createButton;
         private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.CheckedListBox resonanceCheckBox;
     }
 }

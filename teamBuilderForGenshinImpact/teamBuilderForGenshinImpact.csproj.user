@@ -7,5 +7,8 @@
     <Compile Update="StartWindow.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="TeamWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
