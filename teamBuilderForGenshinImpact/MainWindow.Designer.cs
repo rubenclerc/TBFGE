@@ -223,7 +223,7 @@ namespace teamBuilderForGenshinImpact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1168, 573);
+            this.ClientSize = new System.Drawing.Size(1168, 500);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.createButton);
             this.Controls.Add(this.resonanceGroupbox);

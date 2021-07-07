@@ -83,6 +83,9 @@ namespace teamBuilderForGenshinImpact
         //To create a new team
         private void createButton_Click(object sender, EventArgs e)
         {
+
+            int nbRes = this.resonanceCheckBox.CheckedItems.Count;
+
             try
             {
                 //Exceptions management

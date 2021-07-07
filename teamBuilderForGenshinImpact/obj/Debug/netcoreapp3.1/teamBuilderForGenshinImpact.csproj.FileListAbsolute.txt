@@ -23,3 +23,4 @@ D:\TBFGE\teamBuilderForGenshinImpact\obj\Debug\netcoreapp3.1\teamBuilderForGensh
 D:\TBFGE\teamBuilderForGenshinImpact\obj\Debug\netcoreapp3.1\teamBuilderForGenshinImpact.genruntimeconfig.cache
 D:\TBFGE\teamBuilderForGenshinImpact\obj\Debug\netcoreapp3.1\teamBuilderForGenshinImpact.startWindow.resources
 D:\TBFGE\teamBuilderForGenshinImpact\obj\Debug\netcoreapp3.1\teamBuilderForGenshinImpact.MainWindow.resources
+D:\TBFGE\teamBuilderForGenshinImpact\obj\Debug\netcoreapp3.1\teamBuilderForGenshinImpact.TeamWindow.resources
