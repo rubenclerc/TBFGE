@@ -32,7 +32,6 @@ namespace teamBuilderForGenshinImpact
             this.newTeamListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.downloadButton = new System.Windows.Forms.Button();
@@ -44,7 +43,6 @@ namespace teamBuilderForGenshinImpact
             this.newTeamListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
             this.newTeamListView.HideSelection = false;
@@ -62,10 +60,6 @@ namespace teamBuilderForGenshinImpact
             // columnHeader2
             // 
             this.columnHeader2.Text = "Vision";
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Rarity";
             // 
             // columnHeader4
             // 
@@ -114,7 +108,6 @@ namespace teamBuilderForGenshinImpact
         private System.Windows.Forms.Button downloadButton;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Button closeButton;

@@ -43,6 +43,11 @@ namespace teamBuilderForGenshinImpact
         //To close the application
         private void closeButton_Click(object sender, EventArgs e)
         {
+            //Reset the data in the c_team table
+            MySqlCommand resetCommand = new MySqlCommand("TRUNCATE t_team", this.cn);
+            resetCommand.ExecuteNonQuery();
+
+            //Close the app
             this.cn.Close();
             Application.Exit();            
         }
@@ -65,9 +70,45 @@ namespace teamBuilderForGenshinImpact
 
                     //Read data
                     String name = item.SubItems[0].Text;
+                    String vision = null;
+                    String weapon = null;
+                    String main = null;
+                    String burst = null;
+                    String support = null;
+                    String heal = null;
 
-                    //Add character into the list view
+                    MySqlCommand charCommand = new MySqlCommand("SELECT * FROM t_characters WHERE c_name = @name", this.cn);
+                    charCommand.Parameters.AddWithValue("@name", name);
+
+                    using (MySqlDataReader Lire = charCommand.ExecuteReader())
+                    {
+                        while (Lire.Read())
+                        {
+                            vision = Lire["c_vision"].ToString();
+                            weapon = Lire["c_weapon"].ToString();
+                            main = Lire["c_main"].ToString();
+                            burst = Lire["c_burst"].ToString();
+                            support = Lire["c_support"].ToString();
+                            heal = Lire["c_heal"].ToString();
+                        }
+                    }
+
+
+                    //Add the character into the listview
                     this.charactList.Items.Add(new ListViewItem(new[] { name }));
+
+                    //Add the character into the temporary table
+                    MySqlCommand addCommand = new MySqlCommand("INSERT INTO t_team VALUES (@name, @vision, @weapon, @main, @burst, @support, @heal)", this.cn);
+                    addCommand.Parameters.AddWithValue("@name", name);
+                    addCommand.Parameters.AddWithValue("@vision", vision);
+                    addCommand.Parameters.AddWithValue("@weapon", weapon);
+                    addCommand.Parameters.AddWithValue("@main", int.Parse(main));
+                    addCommand.Parameters.AddWithValue("@burst", int.Parse(burst));
+                    addCommand.Parameters.AddWithValue("@support", int.Parse(support));
+                    addCommand.Parameters.AddWithValue("@heal", Convert.ToBoolean(heal));
+
+                    addCommand.ExecuteNonQuery();
+                    addCommand.Parameters.Clear();
                 }
                 catch(LogicError ex)
                 {
@@ -82,6 +123,12 @@ namespace teamBuilderForGenshinImpact
             //Read selected items and delete them
             foreach (ListViewItem item in this.charactList.SelectedItems)
             {
+                //Remove the character from the temporary table
+                MySqlCommand deleteCommand = new MySqlCommand("DELETE FROM t_team WHERE c_name = @name", this.cn);
+                deleteCommand.Parameters.AddWithValue("@name", item.SubItems[0].Text);
+                deleteCommand.ExecuteNonQuery();
+
+                //Remove the character from the listview
                 item.Remove();
             }
         }
@@ -95,7 +142,7 @@ namespace teamBuilderForGenshinImpact
         {
 
             int nbRes = this.resonanceCheckBox.CheckedItems.Count;
-            ArrayList teamList = null;
+            IDictionary<string, string> teamList = null;
 
             try
             {
@@ -131,23 +178,23 @@ namespace teamBuilderForGenshinImpact
         }
 
         //Characters selection
-        public ArrayList oneItemResonance()
+        public IDictionary<string, string> oneItemResonance()
         {
-            ArrayList res = new ArrayList();
+            IDictionary<string, string> res = new Dictionary<string, string>();
 
             return res;
         }
 
-        public ArrayList twoItemsResonance()
+        public IDictionary<string, string> twoItemsResonance()
         {
-            ArrayList res = new ArrayList();
+            IDictionary<string, string> res = new Dictionary<string, string>();
 
             return res;
         }
 
-        public ArrayList fourItemsResonance()
+        public IDictionary<string, string> fourItemsResonance()
         {
-            ArrayList res = new ArrayList();
+            IDictionary<string, string> res = new Dictionary<string, string>();
 
             return res;
         }
