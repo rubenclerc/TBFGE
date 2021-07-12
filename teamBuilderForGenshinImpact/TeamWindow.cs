@@ -21,6 +21,13 @@ namespace teamBuilderForGenshinImpact
             InitializeComponent();
             this.team = team;
             this.cn = cn;
+
+            //Team initialization
+            foreach (String role in this.team.Keys)
+            {
+                this.newTeamListView.Items.Add(new ListViewItem(new[] { this.team[role].ToString(), role }));
+            }
+
         }
 
         //To close the application
@@ -33,6 +40,11 @@ namespace teamBuilderForGenshinImpact
             //Close the app
             this.cn.Close();
             Application.Exit();
+        }
+
+        private void downloadButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

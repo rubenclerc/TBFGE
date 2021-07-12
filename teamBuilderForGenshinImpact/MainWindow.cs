@@ -124,13 +124,19 @@ namespace teamBuilderForGenshinImpact
             foreach (ListViewItem item in this.charactList.SelectedItems)
             {
                 //Remove the character from the temporary table
-                MySqlCommand deleteCommand = new MySqlCommand("DELETE FROM t_team WHERE c_name = @name", this.cn);
-                deleteCommand.Parameters.AddWithValue("@name", item.SubItems[0].Text);
-                deleteCommand.ExecuteNonQuery();
+                this.delete(item.SubItems[0].Text);
 
                 //Remove the character from the listview
                 item.Remove();
             }
+        }
+
+        //Delete method
+        public void delete(String name)
+        {
+            MySqlCommand deleteCommand = new MySqlCommand("DELETE FROM t_team WHERE c_name = @name", this.cn);
+            deleteCommand.Parameters.AddWithValue("@name", name);
+            deleteCommand.ExecuteNonQuery();
         }
 
 
@@ -180,7 +186,25 @@ namespace teamBuilderForGenshinImpact
         //Characters selection
         public IDictionary<string, string> oneItemResonance()
         {
+            //Initialization
             IDictionary<string, string> res = new Dictionary<string, string>();
+            String resonance = this.resonanceCheckBox.CheckedItems[0].ToString();
+            Random rand = new Random();
+            int nextResonance = rand.Next(6);
+            int thirdResonance = rand.Next(6);
+
+            //Selection
+            String main = this.mainSelection(resonance);
+            res.Add("Main DPS", main);
+
+            String sub = this.subSelection(resonance);
+            res.Add("Sub DPS", sub);
+
+            String support = this.supportSelection(this.resonanceCheckBox.Items[nextResonance].ToString());
+            res.Add("Support", support);
+
+            String healer = this.healerSelection(this.resonanceCheckBox.Items[thirdResonance].ToString());
+            res.Add("Healer/support", healer);
 
             return res;
         }
@@ -197,6 +221,123 @@ namespace teamBuilderForGenshinImpact
             IDictionary<string, string> res = new Dictionary<string, string>();
 
             return res;
+        }
+
+
+
+        //Role selection
+        public String mainSelection(String vision)
+        {
+
+            //Initialization
+            String resonance = vision;
+            String name = null;
+
+            //SQL request
+            MySqlCommand mainCommand = new MySqlCommand("SELECT c_name FROM t_team WHERE c_vision = @vision ORDER BY c_main DESC LIMIT 1", this.cn);
+            mainCommand.Parameters.AddWithValue("@vision", resonance);
+
+            using (MySqlDataReader Reader = mainCommand.ExecuteReader())
+            {
+                while (Reader.Read())
+                {
+                    name = Reader["c_name"].ToString();
+                }
+            }
+
+            this.delete(name);
+
+            return name;
+        }
+
+        public String subSelection(String vision)
+        {
+            //Initialization
+            String resonance = vision;
+            String name = null;
+
+            //SQL request
+            MySqlCommand subCommand = new MySqlCommand("SELECT c_name FROM t_team WHERE c_vision = @vision ORDER BY c_burst DESC LIMIT 1", this.cn);
+            subCommand.Parameters.AddWithValue("@vision", resonance);
+
+            using (MySqlDataReader Reader = subCommand.ExecuteReader())
+            {
+                while (Reader.Read())
+                {
+                    name = Reader["c_name"].ToString();
+                }
+            }
+
+            this.delete(name);
+
+
+            return name;
+        }
+
+        public String supportSelection(String vision)
+        {
+            //Initialization
+            String resonance = vision;
+            String name = null;
+
+            //SQL request
+            MySqlCommand supportCommand = new MySqlCommand("SELECT c_name FROM t_team WHERE c_vision = @vision ORDER BY c_support DESC LIMIT 1", this.cn);
+            supportCommand.Parameters.AddWithValue("@vision", resonance);
+
+            using (MySqlDataReader Reader = supportCommand.ExecuteReader())
+            {
+                while (Reader.Read())
+                {
+                    name = Reader["c_name"].ToString();
+                }
+            }
+
+            this.delete(name);
+
+            return name;
+        }
+
+        public String healerSelection(String vision)
+        {
+            //Initialization
+            String resonance = vision;
+            String name = null;
+            int nbLines = -1;
+
+            //SQL requests
+            MySqlCommand countCommand = new MySqlCommand("SELECT COUNT(*) AS nbLines FROM t_team WHERE c_heal = true AND c_vision = @vision", this.cn);
+            countCommand.Parameters.AddWithValue("@vision", resonance);
+
+            using (MySqlDataReader Reader = countCommand.ExecuteReader())
+            {
+                while (Reader.Read())
+                {
+                    nbLines = int.Parse(Reader["nbLines"].ToString());
+                }
+            }
+
+            if (nbLines == 0)
+            {
+                name = this.supportSelection(vision);
+            }
+
+            else
+            {
+                MySqlCommand healerCommand = new MySqlCommand("SELECT c_name FROM t_team WHERE c_heal = true AND c_vision = @vision ORDER BY c_support DESC LIMIT 1", this.cn);
+                healerCommand.Parameters.AddWithValue("@vision", resonance);
+
+                using (MySqlDataReader healReader = healerCommand.ExecuteReader())
+                {
+                    while (healReader.Read())
+                    {
+                        name = healReader["c_name"].ToString();
+                    }
+                }
+            }
+
+            this.delete(name);
+
+            return name;
         }
 
 

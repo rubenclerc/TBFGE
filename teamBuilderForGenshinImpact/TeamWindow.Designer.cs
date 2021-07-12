@@ -31,8 +31,6 @@ namespace teamBuilderForGenshinImpact
         {
             this.newTeamListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.downloadButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
@@ -42,13 +40,11 @@ namespace teamBuilderForGenshinImpact
             // 
             this.newTeamListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader4,
             this.columnHeader5});
             this.newTeamListView.HideSelection = false;
-            this.newTeamListView.Location = new System.Drawing.Point(124, 96);
+            this.newTeamListView.Location = new System.Drawing.Point(224, 83);
             this.newTeamListView.Name = "newTeamListView";
-            this.newTeamListView.Size = new System.Drawing.Size(386, 204);
+            this.newTeamListView.Size = new System.Drawing.Size(178, 117);
             this.newTeamListView.TabIndex = 0;
             this.newTeamListView.UseCompatibleStateImageBehavior = false;
             this.newTeamListView.View = System.Windows.Forms.View.Details;
@@ -57,26 +53,19 @@ namespace teamBuilderForGenshinImpact
             // 
             this.columnHeader1.Text = "Name";
             // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Vision";
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Weapon";
-            // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Role";
             // 
             // downloadButton
             // 
-            this.downloadButton.Location = new System.Drawing.Point(243, 318);
+            this.downloadButton.Location = new System.Drawing.Point(247, 206);
             this.downloadButton.Name = "downloadButton";
-            this.downloadButton.Size = new System.Drawing.Size(129, 26);
+            this.downloadButton.Size = new System.Drawing.Size(129, 27);
             this.downloadButton.TabIndex = 1;
             this.downloadButton.Text = "Download my team";
             this.downloadButton.UseVisualStyleBackColor = true;
+            this.downloadButton.Click += new System.EventHandler(this.downloadButton_Click);
             // 
             // closeButton
             // 
@@ -92,7 +81,7 @@ namespace teamBuilderForGenshinImpact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 434);
+            this.ClientSize = new System.Drawing.Size(656, 381);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.downloadButton);
             this.Controls.Add(this.newTeamListView);
@@ -107,8 +96,6 @@ namespace teamBuilderForGenshinImpact
         private System.Windows.Forms.ListView newTeamListView;
         private System.Windows.Forms.Button downloadButton;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Button closeButton;
     }
