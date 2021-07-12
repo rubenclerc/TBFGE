@@ -1,8 +1,6 @@
 # TBFGE
 Team builder for Genshin Impact is an application which builds Genshin Impact teams for you.
 
-## How does it work?
-
 ## Prerequisites
 * XAMPP: to start a local web server. You can download it here -> <a href="https://www.apachefriends.org/fr/index.html" target="_blank">Download XAMPP</a>
 
