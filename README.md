@@ -6,7 +6,7 @@ Team builder for Genshin Impact is an application which builds Genshin Impact te
 
 ## Installation
 1. Download the file <a href="https://github.com/rubenclerc/TBFGE/blob/main/bdd.sql" target="_blank">bdd.sql</a>
-2. Download the directory /TBFGE v1.0
+2. Download the /TBFGE v1.0 directory
 3. Open XAMPP and start "Apache" and "MySQL"
 4. Go to http://localhost/phpmyadmin/, paste bdd.sql into the SQL section and execute the script
 5. Now you can use the application
