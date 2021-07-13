@@ -34,6 +34,7 @@ namespace teamBuilderForGenshinImpact
             this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.downloadButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // newTeamListView
@@ -42,7 +43,7 @@ namespace teamBuilderForGenshinImpact
             this.columnHeader1,
             this.columnHeader5});
             this.newTeamListView.HideSelection = false;
-            this.newTeamListView.Location = new System.Drawing.Point(224, 83);
+            this.newTeamListView.Location = new System.Drawing.Point(245, 125);
             this.newTeamListView.Name = "newTeamListView";
             this.newTeamListView.Size = new System.Drawing.Size(178, 117);
             this.newTeamListView.TabIndex = 0;
@@ -59,7 +60,7 @@ namespace teamBuilderForGenshinImpact
             // 
             // downloadButton
             // 
-            this.downloadButton.Location = new System.Drawing.Point(247, 206);
+            this.downloadButton.Location = new System.Drawing.Point(264, 248);
             this.downloadButton.Name = "downloadButton";
             this.downloadButton.Size = new System.Drawing.Size(129, 27);
             this.downloadButton.TabIndex = 1;
@@ -77,17 +78,30 @@ namespace teamBuilderForGenshinImpact
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(139, 67);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(376, 46);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Your new team is ready!";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // TeamWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 381);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.downloadButton);
             this.Controls.Add(this.newTeamListView);
             this.Name = "TeamWindow";
             this.Text = "TeamWindow";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -98,5 +112,6 @@ namespace teamBuilderForGenshinImpact
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Label label1;
     }
 }

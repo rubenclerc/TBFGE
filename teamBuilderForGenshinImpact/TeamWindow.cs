@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace teamBuilderForGenshinImpact
 {
@@ -44,6 +45,30 @@ namespace teamBuilderForGenshinImpact
 
         private void downloadButton_Click(object sender, EventArgs e)
         {
+
+            //Initialization
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "txt files (*.txt)|*.txt";
+            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            saveFileDialog.Title = "Save your team";
+            
+
+
+            //If the user wants to save the team, we write in the file
+            if(saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+
+                using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName, true))
+                {
+                    //Writing in the file
+                    foreach (String role in this.team.Keys)
+                    {
+                        sw.WriteLine(role + ": " + this.team[role].ToString());                        
+                    }
+
+                    sw.Close();
+                }
+            }           
 
         }
     }

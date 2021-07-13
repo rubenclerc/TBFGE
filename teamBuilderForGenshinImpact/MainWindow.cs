@@ -211,14 +211,50 @@ namespace teamBuilderForGenshinImpact
 
         public IDictionary<string, string> twoItemsResonance()
         {
+
+            //Initialization
             IDictionary<string, string> res = new Dictionary<string, string>();
+            String firstResonance = this.resonanceCheckBox.CheckedItems[0].ToString();
+            String secondResonance = this.resonanceCheckBox.CheckedItems[1].ToString();
+
+            //Selection
+            String main = this.mainSelection(firstResonance);
+            res.Add("Main DPS", main);
+
+            String sub = this.subSelection(firstResonance);
+            res.Add("Sub DPS", sub);
+
+            String support = this.supportSelection(secondResonance);
+            res.Add("Support", support);
+
+            String healer = this.healerSelection(secondResonance);
+            res.Add("Healer/support", healer);
 
             return res;
         }
 
         public IDictionary<string, string> fourItemsResonance()
         {
+
+            //Initialization
             IDictionary<string, string> res = new Dictionary<string, string>();
+            String firstResonance = this.resonanceCheckBox.CheckedItems[0].ToString();
+            String secondResonance = this.resonanceCheckBox.CheckedItems[1].ToString();
+            String thirdResonance = this.resonanceCheckBox.CheckedItems[2].ToString();
+            String lastResonance = this.resonanceCheckBox.CheckedItems[3].ToString();
+
+            //Selection
+            String main = this.mainSelection(firstResonance);
+            res.Add("Main DPS", main);
+
+            String sub = this.subSelection(secondResonance);
+            res.Add("Sub DPS", sub);
+
+            String support = this.supportSelection(thirdResonance);
+            res.Add("Support", support);
+
+            String healer = this.healerSelection(lastResonance);
+            res.Add("Healer/support", healer);
 
             return res;
         }
@@ -304,7 +340,7 @@ namespace teamBuilderForGenshinImpact
             String name = null;
             int nbLines = -1;
 
-            //SQL requests
+            //To check if the user has a healer
             MySqlCommand countCommand = new MySqlCommand("SELECT COUNT(*) AS nbLines FROM t_team WHERE c_heal = true AND c_vision = @vision", this.cn);
             countCommand.Parameters.AddWithValue("@vision", resonance);
 
@@ -316,11 +352,13 @@ namespace teamBuilderForGenshinImpact
                 }
             }
 
+            //If the user doesn't have a healer, we select a second support
             if (nbLines == 0)
             {
                 name = this.supportSelection(vision);
             }
 
+            //Else we select a healer
             else
             {
                 MySqlCommand healerCommand = new MySqlCommand("SELECT c_name FROM t_team WHERE c_heal = true AND c_vision = @vision ORDER BY c_support DESC LIMIT 1", this.cn);
